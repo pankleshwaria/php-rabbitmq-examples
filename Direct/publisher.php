@@ -5,10 +5,10 @@ require_once __DIR__ . '\..\vendor\autoload.php';
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AmqpMessage;
 
-$strHost     = '192.168.171.46';
+$strHost     = '127.0.0.1';
 $strPort     = '5672';
-$strUsername = 'app_user';
-$strPassword = 'sy67ujmnh!';
+$strUsername = 'guest';
+$strPassword = 'guest';
 $strVhost    = '/';
 
 $strData       = 'Hey you!';
