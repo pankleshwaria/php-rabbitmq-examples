@@ -4,6 +4,7 @@ require_once __DIR__ . '\..\vendor\autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AmqpMessage;
+use PhpAmqpLib\Exchange\AMQPExchangeType;
 
 $strHost     = '127.0.0.1';
 $strPort     = '5672';
@@ -21,7 +22,7 @@ try {
 	$objConnection = new AMQPStreamConnection( $strHost, $strPort, $strUsername, $strPassword, $strVhost );
 	$objChannel    = $objConnection->channel();
 
-	$objChannel->exchange_declare( $strExchange, 'topic', false, false, false );
+	$objChannel->exchange_declare( $strExchange, AMQPExchangeType::TOPIC, false, false, false );
 	$objChannel->queue_declare( $strQueue );
 	$objChannel->queue_bind( $strQueue, $strExchange, $strBindingKey );
 
